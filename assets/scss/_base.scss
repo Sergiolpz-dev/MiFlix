@@ -1,0 +1,18 @@
+body {
+    background-color: $color-background;
+}
+
+// Títulos (Inter)
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-primary;
+    font-weight: 600;
+    color: $color-text;
+    line-height: 1.2;
+}
+
+// Texto general (Roboto)
+body, p, span, li, input, button, a {
+    font-family: $font-secondary;
+    font-weight: 400;
+    color: $color-text;
+}  
