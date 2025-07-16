@@ -3,7 +3,6 @@ import gulpSass from "gulp-sass";
 import dartSass from "sass";
 import autoprefixer from "gulp-autoprefixer";
 import cleanCSS from "gulp-clean-css";
-import cached from "gulp-cached";
 import dependents from "gulp-dependents";
 import debug from "gulp-debug";
 import rename from "gulp-rename";
@@ -13,89 +12,77 @@ import pxtorem from "postcss-pxtorem";
 
 // Configurar gulp-sass con Dart Sass
 const sass = gulpSass(dartSass);
+const server = browserSync.create();
 
 // Opciones de compilación de Sass
 const sassOptions = {
-  includePaths: [
-    "node_modules",
-  ],
-  outputStyle: "expanded",
+	includePaths: ["node_modules"],
+	outputStyle: "expanded",
 };
 
 // Opciones para postcss-pxtorem
 const pxtoremOptions = {
-  rootValue: 16, // 1rem = 16px (ajusta según tu diseño)
-  unitPrecision: 5,
-  propList: ["*"],
-  replace: true,
-  mediaQuery: false,
-  minPixelValue: 1,
+	rootValue: 16,
+	unitPrecision: 5,
+	propList: ["*"],
+	replace: true,
+	mediaQuery: false,
+	minPixelValue: 1,
 };
 
-// Tarea para compilar estilos
+// Tarea para compilar estilos (desarrollo)
 gulp.task("styles", function () {
-  return gulp
-    .src("src/main.scss", { sourcemaps: true }) // Actualizamos la ruta
-    .pipe(cached("sass"))
-    .pipe(dependents())
-    .pipe(debug({ title: "scss:" }))
-    .pipe(sass(sassOptions).on("error", sass.logError))
-    .pipe(postcss([pxtorem(pxtoremOptions)]))
-    .pipe(autoprefixer())
-    //.pipe(rename({ dirname: "" }))
-    .pipe(rename("style.css"))
-    .pipe(gulp.dest("src", { sourcemaps: "." }))
-    .pipe(gulp.dest("src"))
-    .pipe(debug({ title: "css:" }))
-    .pipe(browserSync.stream());
+	return gulp
+		.src("assets/scss/style.scss", { sourcemaps: true })
+		.pipe(dependents()) // ✅ usar dependents con @import
+		.pipe(debug({ title: "scss (dev):" }))
+		.pipe(sass(sassOptions).on("error", sass.logError))
+		.pipe(postcss([pxtorem(pxtoremOptions)]))
+		.pipe(autoprefixer())
+		.pipe(rename("style.css"))
+		.pipe(gulp.dest("css", { sourcemaps: "." }))
+		.pipe(debug({ title: "css (dev):" }))
+		.pipe(server.stream());
 });
 
-// Tarea para compilar y minimizar estilos
+// Tarea para compilar y minimizar estilos (producción)
 gulp.task("styles-min", function () {
-  return gulp
-    .src("src/main.scss") // Actualizamos la ruta
-    .pipe(cached("sass"))
-    .pipe(dependents())
-    .pipe(debug({ title: "scss:" }))
-    .pipe(sass(sassOptions).on("error", sass.logError))
-    .pipe(postcss([pxtorem(pxtoremOptions)]))
-    .pipe(autoprefixer())
-    .pipe(cleanCSS())
-    //.pipe(rename({ dirname: "" }))
-    .pipe(rename("style.min.css"))
-    .pipe(gulp.dest("src"))
-    .pipe(debug({ title: "css:" }));
+	console.log("▶ Ejecutando tarea styles-min");
+
+	return gulp
+		.src("assets/scss/style.scss", { sourcemaps: true })
+		.pipe(dependents()) // ✅ también aquí
+		.pipe(debug({ title: "scss (min):" }))
+		.pipe(sass(sassOptions).on("error", sass.logError))
+		.pipe(postcss([pxtorem(pxtoremOptions)]))
+		.pipe(autoprefixer())
+		.pipe(cleanCSS())
+		.pipe(rename("style.min.css"))
+		.pipe(gulp.dest("css", { sourcemaps: "." }))
+		.pipe(debug({ title: "css (min):" }));
 });
 
 // Tarea principal de compilación
-gulp.task("build", gulp.series("styles"));
+gulp.task("build", gulp.series("styles", "styles-min"));
 
 // Tarea de observación (watch) y sincronización con el navegador
 gulp.task("watch", function () {
-  browserSync.init({
-    server: {
-      baseDir: "src"  // Sirve los archivos desde la raíz del proyecto
-    },
-    startPath: "pages/home.html"
-  });
+	server.init({
+		server: {
+			baseDir: "./",
+		},
+		startPath: "src/pages/home.html",
+	});
 
-  // Escucha los cambios en los archivos SCSS dentro de assets
-  gulp.watch(
-    ["assets/scss/**/*.scss", "assets/components/**/*.scss", "src/main.scss"],
-    {
-      events: "all",
-      ignoreInitial: false,
-    },
-    gulp.series("styles")
-  );
+	gulp.watch(
+		["assets/scss/**/*.scss"],
+		{
+			events: "all",
+			ignoreInitial: false,
+		},
+		gulp.series("styles", "styles-min")
+	);
 
-  // Escucha cambios en el CSS generado
-  gulp.watch("src/*.css").on("change", browserSync.reload);
-
-  // Escucha cambios en los archivos JS dentro de assets/js
-  gulp.watch("src/js/*.js").on("change", browserSync.reload);
-
-  // Escucha cambios en los archivos HTML (en la raíz, por ejemplo, index.html)
-  gulp.watch("src/pages/*.html").on("change", browserSync.reload);
+	gulp.watch("**/*.html").on("change", server.reload);
+	gulp.watch("assets/js/**/*.js").on("change", server.reload);
 });
-
