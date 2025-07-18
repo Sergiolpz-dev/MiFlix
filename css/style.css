@@ -102,7 +102,10 @@ body, p, span, li, input, button, a {
   color: #ffffff;
 }
 
+.hidden {
+  display: none;
+}
+
 /* ------------------
  ------- COMPONENTS -------
- ------------------ */
-/*# sourceMappingURL=style.css.map */
+ ------------------ *//*# sourceMappingURL=style.css.map */

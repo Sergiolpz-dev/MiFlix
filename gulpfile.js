@@ -59,7 +59,8 @@ gulp.task("styles-min", function () {
 		.pipe(cleanCSS())
 		.pipe(rename("style.min.css"))
 		.pipe(gulp.dest("css", { sourcemaps: "." }))
-		.pipe(debug({ title: "css (min):" }));
+		.pipe(debug({ title: "css (min):" }))
+		.pipe(server.stream());
 });
 
 // Tarea principal de compilación

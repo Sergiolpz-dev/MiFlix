@@ -6,21 +6,110 @@
     <link rel="stylesheet" href="/css/style.min.css">
     <title>MiFlix</title>
 </head>
-<body class="home">
-    <header>
-        <h1>MiFlix</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Series</a></li>
-                <li><a href="#">Películas</a></li>
-                <li><a href="#">Mi lista</a></li>
+<body>
+
+    <header class="header">
+        <h1 class="header__logo">MiFlix</h1>
+        
+
+        <!-- TODO: Nav (ocultar en móvil (ver al presionar menu-icon), visible en desktop) -->
+        <nav class="header__nav hidden">
+            <ul class="header__nav-list">
+                <li>
+                    <a href="#">Películas</a>
+                </li>
+                <li>
+                    <a href="#">Series</a>
+                </li>
+                <li>
+                    <button id="categories-btn">Categorías</button>
+        
+                    <!-- Dropdown (PC) y Panel (móvil) -->
+                    <ul id="categories-menu" class="hidden">
+                        <li><a href="#">Acción</a></li>
+                        <li><a href="#">Comedia</a></li>
+                        <li><a href="#">Drama</a></li>
+                        <li><a href="#">Terror</a></li>
+                        <li><a href="#">Anime</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Mi lista</a>
+                </li>
             </ul>
         </nav>
 
+
+        <!-- TODO: Iconos (ocultar el menu-icon en pantallas grandes) -->
+        <div class="header__icons">
+            <img src="../../assets/icons/search.svg" alt="Buscar">
+            <img src="../../assets/icons/user.svg"   alt="Usuario">
+            <img src="../../assets/icons/menu.svg" id="menu-icon" alt="Menu">
+        </div>
+
     </header>
 
-    <main></main>
-    <footer></footer>
-</body>
-</html>
+    <main class="main">
+
+        <!-- Imagen destacada -->
+        <section class="main__hero">
+            <img src="" class="main__hero-img" alt="Imagen destacada">
+            <!-- Estaran en position absolute y la img en relative -->
+            <div class="main__hero-buttons"> 
+                <button>Ver Info</button>
+                <button>+ Mi Lista</button>
+            </div>
+        </section>
+
+        <!-- Carrusel de películas populares -->
+        <section class="main__section">
+            <h3 class="main__section-title">Películas populares</h3>
+            <div class="main__carousel">
+                <!-- Tarjetas -->
+
+                <div class="card">
+                    <img src="" class="card__img" alt="imagen de la película">
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Carrusel de series populares -->
+        <section class="main__section">
+            <h3 class="main__section-title">Series populares</h3>
+            <div class="main__carousel">
+
+                <!-- Tarjetas-->
+                <div class="card">
+                    <img src="" class="card__img" alt="imagen de la serie">
+                </div>
+                
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__logo">
+                <img src="../../assets/img/logo.png" alt="MiFlix logo">
+            </div>
+    
+            <div class="footer__links">
+                <a href="https://github.com/Sergiolpz-dev" target="_blank" aria-label="GitHub">
+                    <img src="../../assets/icons/github.svg" width="24" height="24"  alt="GitHub">
+                </a>
+                <a href="www.linkedin.com/in/sergiolpz-dev" target="_blank" aria-label="LinkedIn">
+                    <img src="../../assets/icons/linkedin.svg" width="24" height="24" alt="LinkedIn">
+                </a>
+                <a href="mailto:sergiolpz.dev@gmail.com" aria-label="Email">
+                    <img src="../../assets/icons/mail.svg" width="24" height="24" alt="Email">
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    
+    </body>
+    
+    </html>
