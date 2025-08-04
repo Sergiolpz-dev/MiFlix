@@ -12,10 +12,10 @@ menuBtn.addEventListener("click", () => {
 
 // Close menu btn
 closeBtn.addEventListener("click", () => {
-    if (window.innerWidth < 768) {
-        menu.style.display = "none";
-    }
     closeBtn.style.display = "none";
+    if (window.innerWidth < 768) {
+        menu.style.display = "none"; 
+    }
     menu.classList.remove("animate__slideOutUp", "animate__animated");
     categoriesMenu.classList.remove("animate__slideInUp", "animate__animated");
     categoriesMenu.style.display = "none";
