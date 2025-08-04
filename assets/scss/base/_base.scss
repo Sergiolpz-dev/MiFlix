@@ -17,6 +17,18 @@ body, p, span, li, input, button, a {
     color: $color-text;
 }  
 
+
+.wrapper {
+    width: 100%;
+    padding-inline: 20px;
+
+    @media (min-width: 768px) {
+        width: 90%;
+        max-width: 1280px;
+        margin-inline: auto;
+    }
+}
+
 // Ocultar
 .hidden {
     display: none;

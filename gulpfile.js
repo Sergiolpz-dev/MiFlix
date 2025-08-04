@@ -5,7 +5,7 @@ import autoprefixer from "gulp-autoprefixer";
 import cleanCSS from "gulp-clean-css";
 import dependents from "gulp-dependents";
 import debug from "gulp-debug";
-import rename from "gulp-rename";
+import rename from "gulp-rename";	
 import browserSync from "browser-sync";
 import postcss from "gulp-postcss";
 import pxtorem from "postcss-pxtorem";
