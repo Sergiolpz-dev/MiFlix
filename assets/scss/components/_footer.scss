@@ -1,0 +1,35 @@
+.footer{
+    padding-bottom: 16px;
+    width: 100%;
+
+    &__hr{
+        margin-bottom: 24px;
+    }
+
+    &__container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo{
+        font-size: 20px;
+        cursor: pointer;
+        
+    }
+
+    &__links{
+        display: flex;
+        gap: 8px;
+
+        .mail-icon{
+            width: 24px;
+            height: 24px;
+            scale: 1.1;
+        }
+        .icon:hover{
+            scale: 1.2;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+}

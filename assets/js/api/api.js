@@ -60,13 +60,13 @@ export function renderCards(data, id) {
 export async function getHeroMovie(page = 1) {
     const url = `${BASE_URL}/movie/top_rated?api_key=${API_KEY}&language=${LANG}&page=${page}`;
     const data = await fetchData(url);
-    return data.results[0];
+    return data.results[13];
 }
 
 export async function getHeroSeries(page = 1) {
     const url = `${BASE_URL}/tv/top_rated?api_key=${API_KEY}&language=${LANG}&page=${page}`;
     const data = await fetchData(url);
-    return data.results[0];
+    return data.results[10];
 }
 
 export async function renderHero(data) {

@@ -207,10 +207,6 @@ body, p, span, li, input, button, a {
   cursor: pointer;
 }
 
-.footer {
-  display: none;
-}
-
 .main {
   padding: 1rem 0;
 }
@@ -220,6 +216,8 @@ body, p, span, li, input, button, a {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  max-width: 43.75rem;
+  margin: auto;
 }
 @media (min-width: 768px) {
   .main__hero {
@@ -307,5 +305,35 @@ body, p, span, li, input, button, a {
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
+}
+
+.footer {
+  padding-bottom: 1rem;
+  width: 100%;
+}
+.footer__hr {
+  margin-bottom: 1.5rem;
+}
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__logo {
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+.footer__links {
+  display: flex;
+  gap: 0.5rem;
+}
+.footer__links .mail-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  scale: 1.1;
+}
+.footer__links .icon:hover {
+  scale: 1.2;
+  transition: all 0.3s ease-in-out;
 }
 /*# sourceMappingURL=style.css.map */
