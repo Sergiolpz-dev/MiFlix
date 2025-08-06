@@ -4,6 +4,10 @@
 
     &__hero {
         height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
 
         @media (min-width: 768px) {
             height: 70vh;

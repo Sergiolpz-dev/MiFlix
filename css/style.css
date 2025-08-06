@@ -216,6 +216,10 @@ body, p, span, li, input, button, a {
 }
 .main__hero {
   height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 @media (min-width: 768px) {
   .main__hero {
