@@ -47,11 +47,14 @@ export async function getTopRatedSeries(page = 1) {
 export function renderCards(data, id) {
     const $container = document.getElementById(id);
     const html = data.map(movie => {
-        return `
-            <div class="card">
+
+        if(movie.poster_path != null){
+            return `
+            <div class="card" id="${movie.id}">
                 <img src="https://image.tmdb.org/t/p/w300/${movie.poster_path}" class="card__img" alt="imagen de la película" />
             </div>
         `;
+        }
     }).join('');
     $container.innerHTML = html;
 }
@@ -122,3 +125,19 @@ export async function getHeroSeriesByCategory(categoryId, page = 1) {
     const data = await fetchData(url);
     return data.results[0];
 }
+
+// Funcion para buscar películas
+export async function searchMovies(value) {
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${value}`;
+    const data = await fetchData(url);
+    console.log(data.results);
+    return data.results;
+}
+
+// Funcion para buscar series
+export async function searchSeries(value) {
+    const url = `https://api.themoviedb.org/3/search/tv?api_key=${API_KEY}&query=${value}`;
+    const data = await fetchData(url);
+    return data.results;
+}
+
