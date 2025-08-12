@@ -56,19 +56,20 @@ export function renderCards(data, id) {
     $container.innerHTML = html;
 }
 
-
+// Funcion para obtener la película destacada
 export async function getHeroMovie(page = 1) {
     const url = `${BASE_URL}/movie/top_rated?api_key=${API_KEY}&language=${LANG}&page=${page}`;
     const data = await fetchData(url);
     return data.results[13];
 }
 
+// Funcion para obtener la serie destacada
 export async function getHeroSeries(page = 1) {
     const url = `${BASE_URL}/tv/top_rated?api_key=${API_KEY}&language=${LANG}&page=${page}`;
     const data = await fetchData(url);
     return data.results[10];
 }
-
+// Funcion para renderizar la película destacada
 export async function renderHero(data) {
     const $container = document.getElementById("hero");
     const html = `
@@ -80,4 +81,44 @@ export async function renderHero(data) {
     $container.innerHTML = html;
 }
 
+// Funcion para obtener las películas mejor valoradas por categoría
+export async function getTopRatedMoviesByCategory(categoryId, page = 1) {
+    const url = `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=${LANG}&with_genres=${categoryId}&sort_by=vote_average.desc&vote_count.gte=1000&page=${page}`;
+    const data = await fetchData(url);
+    return data.results;
+}
 
+// Funcion para obtener las series mejor valoradas por categoría
+export async function getTopRatedSeriesByCategory(categoryId, page = 1) {
+    const url = `${BASE_URL}/discover/tv?api_key=${API_KEY}&language=${LANG}&with_genres=${categoryId}&sort_by=vote_average.desc&vote_count.gte=500&page=${page}`;
+    const data = await fetchData(url);
+    return data.results;
+}
+
+// Películas populares por categoría
+export async function getPopularMoviesByCategory(categoryId, page = 1) {
+    const url = `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=${LANG}&with_genres=${categoryId}&sort_by=popularity.desc&page=${page}`;
+    const data = await fetchData(url);
+    return data.results;
+}
+
+// Series populares por categoría
+export async function getPopularSeriesByCategory(categoryId, page = 1) {
+    const url = `${BASE_URL}/discover/tv?api_key=${API_KEY}&language=${LANG}&with_genres=${categoryId}&sort_by=popularity.desc&page=${page}`;
+    const data = await fetchData(url);
+    return data.results;
+}
+
+// Funcion para obtener la película destacada por categoría
+export async function getHeroMovieByCategory(categoryId, page = 1) {
+    const url = `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=${LANG}&with_genres=${categoryId}&sort_by=vote_average.desc&vote_count.gte=1000&page=${page}`;
+    const data = await fetchData(url);
+    return data.results[0];
+}
+
+// Funcion para obtener la serie destacada por categoría
+export async function getHeroSeriesByCategory(categoryId, page = 1) {
+    const url = `${BASE_URL}/discover/tv?api_key=${API_KEY}&language=${LANG}&with_genres=${categoryId}&sort_by=vote_average.desc&vote_count.gte=500&page=${page}`;
+    const data = await fetchData(url);
+    return data.results[0];
+}

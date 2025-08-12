@@ -44,3 +44,41 @@ categoriesBtn.addEventListener("click", () => {
     categoriesMenu.style.display = "flex";
     closeBtn.style.display = "block";
 });
+
+
+
+// Categories links
+
+const comedyBtn = document.getElementById("comedy-btn");
+const dramaBtn = document.getElementById("drama-btn");
+const animeBtn = document.getElementById("anime-btn");
+
+comedyBtn.addEventListener("click", () => {
+    closeBtn.style.display = "none";
+    if (window.innerWidth < 768) {
+        menu.style.display = "none"; 
+    }
+    menu.classList.remove("animate__slideOutUp", "animate__animated");
+    categoriesMenu.classList.remove("animate__slideInUp", "animate__animated");
+    categoriesMenu.style.display = "none";
+});
+
+dramaBtn.addEventListener("click", () => {
+    closeBtn.style.display = "none";
+    if (window.innerWidth < 768) {
+        menu.style.display = "none"; 
+    }
+    menu.classList.remove("animate__slideOutUp", "animate__animated");
+    categoriesMenu.classList.remove("animate__slideInUp", "animate__animated");
+    categoriesMenu.style.display = "none";
+});
+
+animeBtn.addEventListener("click", () => {
+    closeBtn.style.display = "none";
+    if (window.innerWidth < 768) {
+        menu.style.display = "none"; 
+    }
+    menu.classList.remove("animate__slideOutUp", "animate__animated");
+    categoriesMenu.classList.remove("animate__slideInUp", "animate__animated");
+    categoriesMenu.style.display = "none";
+});
