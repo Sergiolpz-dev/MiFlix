@@ -1,6 +1,6 @@
 
 
-async function fetchData(url) {
+export async function fetchData(url) {
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -50,7 +50,7 @@ export function renderCards(data, id) {
 
         if(movie.poster_path != null){
             return `
-            <div class="card" id="${movie.id}">
+            <div class="card" data-id="${movie.id}">
                 <img src="https://image.tmdb.org/t/p/w300/${movie.poster_path}" class="card__img" alt="imagen de la película" />
             </div>
         `;
@@ -79,7 +79,7 @@ export async function renderHero(data) {
         <img src="${window.innerWidth < 400 ? `https://image.tmdb.org/t/p/w300/${data.poster_path}` : `https://image.tmdb.org/t/p/w1280/${data.backdrop_path}`}"
             class="main_hero-img"
             style="width: ${window.innerWidth < 400 ? '100%' : '90vw'}"
-            alt="imagen de la película" />
+            alt="imagen de la película" id="hero-img" data-id="${data.id}"/>
     `;
     $container.innerHTML = html;
 }

@@ -50,7 +50,7 @@
 
             <!-- TODO: Iconos (ocultar el menu-icon en pantallas grandes) -->
             <div class="header__icons">
-                <img src="../../assets/icons/search.svg" alt="Buscar" class="icon">
+                <img src="../../assets/icons/search.svg" alt="Buscar" class="icon" id="search-btn">
                 <img src="../../assets/icons/person.svg"   alt="Usuario" class="icon">
                 <img src="../../assets/icons/menu.svg" id="menu-icon" alt="Menu" class="icon">
             </div>
@@ -62,6 +62,25 @@
         </header>
         
         <hr>
+
+        <!-- Overlay de Busqueda -->
+        <div id="search-overlay" class="search-overlay">
+            <h3 class="search-overlay__title">Buscar</h3>
+            <hr>
+            <div class="search-overlay__container">
+                <input type="text" placeholder="Titulo, género, actor..." id="search-input">
+            </div>
+            <div class="search-overlay__results" id="search-results">
+                <!-- Tarjetas (crearlas con js) -->
+                
+            </div>
+
+            <div id="overlay-close-icon">
+                <img src="../../assets/icons/close.svg" alt="Cerrar" class="icon">
+            </div>
+
+        </div>
+
 
         <main class="main">
 
@@ -101,6 +120,28 @@
             </section>
 
         </main>
+
+        <div class="details__back" id="back-icon">
+            <img src="../../assets/icons/back.svg" alt="Volver">
+        </div>
+
+        <div id="details-overlay" class="details">
+            <!-- <div class="details-img">
+                <img src="" alt="" id="">
+            </div>
+            <div class="details-title">
+                <h3>Titulo</h3>
+                <p>Nota</p>
+            </div>
+            <div class="details-genres">
+                <p>Accion</p>
+                <p>Terror</p>
+            </div>
+            <div class="details-description">
+                <p>Descripción</p>
+            </div> -->
+
+        </div>
         
         <footer class="footer">
             <hr class="footer__hr">
@@ -113,7 +154,7 @@
                     <a href="https://github.com/Sergiolpz-dev" target="_blank" aria-label="GitHub" class="icon">
                         <img src="../../assets/icons/github.svg" width="24" height="24"  alt="GitHub">
                     </a>
-                    <a href="www.linkedin.com/in/sergiolpz-dev" target="_blank" aria-label="LinkedIn" class="icon">
+                    <a href="https://www.linkedin.com/in/sergiolpz-dev" target="_blank" aria-label="LinkedIn" class="icon">
                         <img src="../../assets/icons/linkedin.svg" width="24" height="24" alt="LinkedIn">
                     </a>
                     <a href="mailto:sergiolpz.dev@gmail.com" aria-label="Email" class="icon">
@@ -131,6 +172,6 @@
 <script src="../../assets/js/carousel.js"></script>
 <script type="module" src="../../assets/js/api/api.js"></script>
 <script type="module" src="../../assets/js/api/series.js"></script>
-
-    
+<script type="module" src="../../assets/js/search.js"></script>
+<script type="module" src="../../assets/js/details.js"></script>    
 </html>
