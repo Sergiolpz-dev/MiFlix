@@ -18,3 +18,8 @@ Esta primera versión de **MiFlix** tiene como finalidad practicar y aplicar:
 - **Gulp**
 - **JavaScript (ES6+)**
 - **APIs externas**
+
+## ⚠️ Limitaciones conocidas
+- Algunas tarjetas generan error al solicitar detalles por ID a la API.  
+- El ID se recibe correctamente en consola, pero la API no devuelve respuesta en ciertos casos.  
+- Este es un comportamiento del endpoint, no de la lógica de la aplicación.  
