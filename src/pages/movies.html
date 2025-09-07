@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <title>MiFlix - Películas</title>
 </head>
+
 <body>
 
     <div class="wrapper">
 
         <header class="header">
             <h1 class="header__logo"><a href="home.html">MiFlix</a></h1>
-            
+
 
             <!-- TODO: Nav (ocultar en móvil (ver al presionar menu-icon), visible en desktop) -->
             <nav class="header__nav">
@@ -26,7 +28,7 @@
                     </li>
                     <li>
                         <button id="categories-btn">Categorías</button>
-            
+
                         <!-- Dropdown (PC) y Panel (móvil)
                         <ul id="categories-menu" class="categories-menu">
                                 <li><a href="#">Comedia</a></li>
@@ -51,7 +53,7 @@
             <!-- TODO: Iconos (ocultar el menu-icon en pantallas grandes) -->
             <div class="header__icons">
                 <img src="../../assets/icons/search.svg" alt="Buscar" class="icon" id="search-btn">
-                <img src="../../assets/icons/person.svg"   alt="Usuario" class="icon">
+                <img src="../../assets/icons/person.svg" alt="Usuario" class="icon">
                 <img src="../../assets/icons/menu.svg" id="menu-icon" alt="Menu" class="icon">
             </div>
 
@@ -60,7 +62,7 @@
             </div>
 
         </header>
-        
+
         <hr>
 
         <!-- Overlay de Busqueda -->
@@ -72,7 +74,7 @@
             </div>
             <div class="search-overlay__results" id="search-results">
                 <!-- Tarjetas (crearlas con js) -->
-                
+
             </div>
 
             <div id="overlay-close-icon">
@@ -92,16 +94,16 @@
             <!-- Carrusel de películas populares -->
             <section class="main__section">
                 <h3 class="main__section-title">Películas populares</h3>
-            
+
                 <div class="carousel-wrapper">
                     <button class="carousel-btn carousel-btn--left">◀</button>
-            
+
                     <div class="main__section-carousel" id="popular-movies">
                         <!-- Tarjetas (crearlas con js) -->
                         <!-- <div class="card"><img src="../../assets/img/img1.jpg" class="card__img" alt="imagen de la película" />
                         </div> -->
                     </div>
-            
+
                     <button class="carousel-btn carousel-btn--right">▶</button>
                 </div>
             </section>
@@ -110,14 +112,14 @@
             <!-- Carrusel de películas mejor valoradas -->
             <section class="main__section">
                 <h3 class="main__section-title">Películas mejor valoradas</h3>
-            
+
                 <div class="carousel-wrapper">
                     <button class="carousel-btn carousel-btn--left">◀</button>
-            
+
                     <div class="main__section-carousel" id="top-movies">
                         <!-- Tarjetas (crearlas con js) -->
                     </div>
-            
+
                     <button class="carousel-btn carousel-btn--right">▶</button>
                 </div>
             </section>
@@ -145,19 +147,20 @@
             </div> -->
 
         </div>
-        
+
         <footer class="footer">
             <hr class="footer__hr">
             <div class="footer__container">
                 <div class="footer__logo">
                     <h2><a href="home.html">MiFlix</a></h2>
                 </div>
-        
+
                 <div class="footer__links">
                     <a href="https://github.com/Sergiolpz-dev" target="_blank" aria-label="GitHub" class="icon">
-                        <img src="../../assets/icons/github.svg" width="24" height="24"  alt="GitHub">
+                        <img src="../../assets/icons/github.svg" width="24" height="24" alt="GitHub">
                     </a>
-                    <a href="https://www.linkedin.com/in/sergiolpz-dev" target="_blank" aria-label="LinkedIn" class="icon">
+                    <a href="https://www.linkedin.com/in/sergiolpz-dev" target="_blank" aria-label="LinkedIn"
+                        class="icon">
                         <img src="../../assets/icons/linkedin.svg" width="24" height="24" alt="LinkedIn">
                     </a>
                     <a href="mailto:sergiolpz.dev@gmail.com" aria-label="Email" class="icon">
@@ -167,8 +170,8 @@
             </div>
         </footer>
     </div>
-    
-    
+
+
 </body>
 
 <script src="../../assets/js/header.js"></script>
@@ -176,5 +179,6 @@
 <script type="module" src="../../assets/js/api/api.js"></script>
 <script type="module" src="../../assets/js/api/movies.js"></script>
 <script type="module" src="../../assets/js/search.js"></script>
-<script type="module" src="../../assets/js/details.js"></script>    
+<script type="module" src="../../assets/js/details.js"></script>
+
 </html>

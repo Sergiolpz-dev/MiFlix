@@ -194,6 +194,9 @@ body, p, span, li, input, button, a {
   height: 100vh;
   font-size: 1.25rem;
 }
+.header .categories-menu button {
+  cursor: pointer;
+}
 .header #close-icon {
   position: fixed;
   display: none;
@@ -221,7 +224,7 @@ body, p, span, li, input, button, a {
 }
 .main__hero:hover {
   transform: scale(1.01);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s;
   cursor: pointer;
 }
 @media (min-width: 768px) {
@@ -422,12 +425,14 @@ body, p, span, li, input, button, a {
   padding: 1rem;
   max-width: 43.75rem;
   margin: auto;
+  font-size: 1rem;
 }
 .details-description {
   padding: 1rem;
   max-width: 43.75rem;
   margin: auto;
   padding-bottom: 2rem;
+  font-size: 1rem;
 }
 
 #back-icon {
@@ -465,5 +470,4 @@ body, p, span, li, input, button, a {
 .footer__links .icon:hover {
   scale: 1.2;
   transition: all 0.3s ease-in-out;
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
