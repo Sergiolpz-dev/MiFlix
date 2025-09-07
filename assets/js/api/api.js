@@ -47,7 +47,7 @@ export function renderCards(data, id) {
       if (movie.poster_path != null) {
         return `
             <div class="card" data-id="${movie.id}">
-              <a href="#hero"><img src="https://image.tmdb.org/t/p/w300/${movie.poster_path}" class="card__img" alt="imagen de la película" /></a>
+              <a href="#hero"><img src="https://image.tmdb.org/t/p/w300/${movie.poster_path}" class="card__img" alt="${movie.title}" /></a>
             </div>
         `;
       }
@@ -79,7 +79,7 @@ export async function renderHero(data) {
     }"
             class="main__hero-img"
             style="width: ${window.innerWidth < 400 ? "100%" : "90vw"}"
-            alt="imagen de la película" id="hero-img" data-id="${data.id}"/></a>
+            alt="${data.title}" id="hero-img" data-id="${data.id}"/></a>
     `;
   $container.innerHTML = html;
 }

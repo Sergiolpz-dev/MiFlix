@@ -2,7 +2,7 @@ import { fetchData } from './api/api.js';
 
 const API_KEY = '943f521031a9119e923409c9cb20f403';
 const BASE_URL = 'https://api.themoviedb.org/3';
-const LANG = 'es-ES';   
+const LANG = 'es-ES';
 
 const detailsOverlay = document.getElementById('details-overlay');
 const backIcon = document.getElementById('back-icon');
@@ -14,7 +14,7 @@ const hero = document.getElementById('hero');
 const searchResults = document.getElementById('search-results');
 const searchOverlay = document.getElementById('search-overlay');
 
-const isHome = window.location.href.includes('home.html');
+const isHome = window.location.href.includes('index.html');
 const isSeries = window.location.href.includes('series.html');
 const isMovies = window.location.href.includes('movies.html');
 
@@ -31,7 +31,7 @@ if (isHome) {
     popularSeries.addEventListener('click', (e) => {
         getId(e);
     });
-    
+
 } else if (isSeries) {
     topRatedSeries.addEventListener('click', (e) => {
         getId(e);
@@ -60,7 +60,7 @@ backIcon.addEventListener('click', () => {
     detailsOverlay.style.display = 'none';
     header.style.display = 'flex';
     main.style.display = 'block';
-    footer.style.display = 'block'; 
+    footer.style.display = 'block';
     hr.style.display = 'block';
     backIcon.style.display = 'none';
     detailsOverlay.innerHTML = '';
@@ -122,7 +122,7 @@ async function renderDetails(id) {
         detailsOverlay.style.display = 'none';
         header.style.display = 'flex';
         main.style.display = 'block';
-        footer.style.display = 'block'; 
+        footer.style.display = 'block';
         hr.style.display = 'block';
         backIcon.style.display = 'none';
         return;
@@ -133,7 +133,7 @@ async function renderDetails(id) {
     <div class="details-img">
         <img src="https://image.tmdb.org/t/p/w1280/${data.backdrop_path}"
             class="details-img"
-            alt="imagen de la película" id="details-img" data-id="${data.id}"/>
+            alt="${data.title}" id="details-img" data-id="${data.id}"/>
     </div>
     <div class="details-title">
         <h3>${data.title}</h3>
@@ -153,7 +153,7 @@ async function renderDetails(id) {
 
 
 const header = document.querySelector('.header');
-const main  = document.querySelector('.main');
+const main = document.querySelector('.main');
 const footer = document.querySelector('.footer');
 const hr = document.querySelector('hr');
 
